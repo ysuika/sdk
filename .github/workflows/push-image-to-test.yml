@@ -1,0 +1,9 @@
+name: Push container image to test repository
+on: 
+  workflow_dispatch:
+
+jobs:
+  call:
+    uses: ysuika/acore-cicd-templates/.github/workflows/acore-sdk-workflow.yml@main
+    with:
+      test-image-repo: ghcr.io/ysuika/acore-sdk-test
