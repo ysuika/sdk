@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
          make \
 #         gcc \
-        cmake && \
+#        cmake && \
     rm -rf /var/lib/apt/lists/*
 
 # Set default shell
