@@ -1,0 +1,36 @@
+name: A-core sdk CI/CD
+on: 
+  push:
+    branches-ignore: 
+      - 'doc/**'
+      - 'work/**'
+  pull_request:
+    branches-ignore: 
+      - 'doc/**'
+      - 'work/**'  
+  workflow_dispatch:
+    inputs:
+      bump-type:
+        description: 'Which bump fits?'     
+        required: true
+        type: choice
+        options:
+          - 'major'
+          - 'minor'
+          - 'patch'
+          - 'none'
+          - 'push to test'
+
+# To prevent inconsistancy of git version tag
+concurrency:
+  group: ${{ github.ref == 'refs/heads/main' && 'main-branch' || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  call:
+    if: github.event_name != 'push' || github.event.created == false
+    uses: XX9-YE-SONG/acore-cicd-templates/.github/workflows/acore-sdk-workflow.yml@main
+    with:
+      bump-type: ${{ inputs.bump-type }}
+      test-image-repo: ghcr.io/XX9-YE-SONG/acore-sdk-test
+      prod-image-repo: ghcr.io/XX9-YE-SONG/acore-sdk
