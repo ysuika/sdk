@@ -32,5 +32,4 @@ jobs:
     uses: ysuika/acore-cicd-templates/.github/workflows/sdv-sdk-workflow.yml@main
     with:
       bump-type: ${{ inputs.bump-type }}
-      test-image-repo: ghcr.io/ysuika/acore-sdk-test
-      prod-image-repo: ghcr.io/ysuika/acore-sdk
+      prod-image-repo: ghcr.io/ysuika/sdv-sdk
