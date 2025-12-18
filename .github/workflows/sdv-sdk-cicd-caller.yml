@@ -1,4 +1,4 @@
-name: A-core sdk CI/CD
+name: SDV SDK CI/CD
 on: 
   push:
     branches-ignore: 
@@ -29,8 +29,7 @@ concurrency:
 jobs:
   call:
     if: github.event_name != 'push' || github.event.created == false
-    uses: ysuika/acore-cicd-templates/.github/workflows/acore-sdk-workflow.yml@main
+    uses: ysuika/acore-cicd-templates/.github/workflows/sdv-sdk-workflow.yml@main
     with:
       bump-type: ${{ inputs.bump-type }}
-      test-image-repo: ghcr.io/ysuika/acore-sdk-test
-      prod-image-repo: ghcr.io/ysuika/acore-sdk
+      prod-image-repo: ghcr.io/ysuika/sdv-sdk
