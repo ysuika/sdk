@@ -29,7 +29,7 @@ concurrency:
 jobs:
   call:
     if: github.event_name != 'push' || github.event.created == false
-    uses: ysuika/acore-cicd-templates/.github/workflows/sdv-sdk-workflow.yml@main
+    uses: ysuika/sdv-cicd-templates/.github/workflows/sdv-sdk-workflow.yml@main
     with:
       bump-type: ${{ inputs.bump-type }}
       prod-image-repo: ghcr.io/ysuika/sdv-sdk
