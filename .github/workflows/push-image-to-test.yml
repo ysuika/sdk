@@ -4,6 +4,6 @@ on:
 
 jobs:
   call:
-    uses: ysuika/sdv-cicd-templates/.github/workflows/acore-sdk-workflow.yml@main
+    uses: ysuika/sdv-cicd-templates/.github/workflows/push-to-nonprod.yml@main
     with:
-      test-image-repo: ghcr.io/ysuika/acore-sdk-test
+      test-image-repo: ghcr.io/ysuika/sdv-sdk-test
